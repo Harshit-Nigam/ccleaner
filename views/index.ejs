@@ -1,188 +1,208 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CCleaner Clone UI</title>
-    <link rel="stylesheet" href="/styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-</head>
-<body>
+    <link rel="stylesheet" href="/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body>
     <div id="loading-overlay">
-        <div class="loader"></div>
+      <div class="loader"></div>
     </div>
 
     <div id="header">
-        <div class="logo-container">
-            <img src="/images/logo.png" alt="CCleaner Clone Logo" class="logo">
-            <span class="logo-text">CCleaner</span>
-        </div>
+      <div class="logo-container">
+        <img src="/images/logo.png" alt="CCleaner Clone Logo" class="logo" />
+        <span class="logo-text">CCleaner</span>
+      </div>
 
-        <div id="pop">
-            <button id="healthStatusButton"><i class="fas fa-heartbeat fa-2x"></i>Health Status</button>
-            <button id="myAccountButton"><i class="fa-solid fa-user fa-2x"></i>My Account</button>
-        </div>
+      <div id="pop">
+        <button id="healthStatusButton">
+          <i class="fas fa-heartbeat fa-2x"></i>Health Status
+        </button>
+        <button id="myAccountButton">
+          <i class="fa-solid fa-user fa-2x"></i>My Account
+        </button>
+      </div>
     </div>
 
     <div id="sidebar">
-        <ul>
-            <li onclick="showSection('health-check')">
-                <i class="fa-solid fa-heart-pulse fa-2x"></i>
-                <span>Health Check</span>
-            </li>
-            <li onclick="showSection('custom-clean')">
-                <i class="fa-solid fa-broom fa-2x"></i>
-                <span>Custom Clean</span>
-            </li>
-            <li onclick="showSection('performance-optimizer')">
-                <i class="fa-solid fa-rocket fa-2x"></i>
-                <span>Performance Optimizer</span>
-            </li>
-            <li onclick="showSection('driver-updater')">
-                <i class="fa-solid fa-microchip fa-2x"></i>
-                <span>Driver Updater</span>
-            </li>
-            <li onclick="showSection('software-updater')">
-                <i class="fa-solid fa-recycle fa-2x"></i>
-                <span>Software Updater</span>
-            </li>
-            <li onclick="showSection('tools')">
-                <i class="fa-solid fa-wrench fa-2x"></i>
-                <span>Tools</span>
-            </li>
-            <li onclick="showSection('options')">
-                <i class="fa-solid fa-gear fa-2x"></i>
-                <span>Options</span>
-            </li>
-            <li onclick="showSection('get-pro')">
-                <i class="fa-solid fa-up-long fa-2x"></i>
-                <span>Get Pro</span>
-            </li>
-        </ul>
+      <ul>
+        <li onclick="showSection('health-check')">
+          <i class="fa-solid fa-heart-pulse fa-2x"></i>
+          <span>Health Check</span>
+        </li>
+        <li onclick="showSection('custom-clean')">
+          <i class="fa-solid fa-broom fa-2x"></i>
+          <span>Custom Clean</span>
+        </li>
+        <li onclick="showSection('performance-optimizer')">
+          <i class="fa-solid fa-rocket fa-2x"></i>
+          <span>Performance Optimizer</span>
+        </li>
+        <li onclick="showSection('driver-updater')">
+          <i class="fa-solid fa-microchip fa-2x"></i>
+          <span>Driver Updater</span>
+        </li>
+        <li onclick="showSection('software-updater')">
+          <i class="fa-solid fa-recycle fa-2x"></i>
+          <span>Software Updater</span>
+        </li>
+        <li onclick="showSection('tools')">
+          <i class="fa-solid fa-wrench fa-2x"></i>
+          <span>Tools</span>
+        </li>
+        <li onclick="showSection('options')">
+          <i class="fa-solid fa-gear fa-2x"></i>
+          <span>Options</span>
+        </li>
+        <li onclick="showSection('get-pro')">
+          <i class="fa-solid fa-up-long fa-2x"></i>
+          <span>Get Pro</span>
+        </li>
+      </ul>
     </div>
 
     <div id="main-content">
-        <!-- Health Check Section -->
-        <div id="health-check" class="content-section">
-            <div class="center-content">
-                <img src="/images/mainlogo.jpg" alt="CCleaner Clone Image" class="center-img">
-                <h2>Welcome back to Health Check</h2>
-                <p>Start by scanning your PC, review the results and apply updates in just a few clicks. We won't clean anything without asking first.</p>
-                <div class="button-group">
-                    <button id="scanButton" class="btn-primary">Scan PC</button>
-                    <button class="btn-secondary">Learn More</button>
+      <!-- Health Check Section -->
+      <div id="health-check" class="content-section">
+        <div class="center-content">
+          <img
+            src="/images/mainlogo.jpg"
+            alt="CCleaner Clone Image"
+            class="center-img"
+          />
+          <h2>Welcome back to Health Check</h2>
+          <p>
+            Start by scanning your PC, review the results and apply updates in
+            just a few clicks. We won't clean anything without asking first.
+          </p>
+          <div class="button-group">
+            <button id="scanButton" class="btn-primary">Scan PC</button>
+            <button class="btn-secondary">Learn More</button>
+          </div>
+          <div id="scanStatusArea"></div>
+          <div id="system-health">
+            <h3>System Health Overview</h3>
+            <div id="health-metrics">
+              <div class="metric">
+                <h4>CPU Usage</h4>
+                <div class="progress-bar">
+                  <div id="cpuUsage" class="progress"></div>
                 </div>
-                <div id="scanStatusArea"></div>
-                <div id="system-health">
-                    <h3>System Health Overview</h3>
-                    <div id="health-metrics">
-                        <div class="metric">
-                            <h4>CPU Usage</h4>
-                            <div class="progress-bar">
-                                <div id="cpuUsage" class="progress"></div>
-                            </div>
-                            <span id="cpuUsageText">0%</span>
-                        </div>
-                        <div class="metric">
-                            <h4>Memory Usage</h4>
-                            <div class="progress-bar">
-                                <div id="memoryUsage" class="progress"></div>
-                            </div>
-                            <span id="memoryUsageText">0%</span>
-                        </div>
-                        <div class="metric">
-                            <h4>Disk Usage</h4>
-                            <div class="progress-bar">
-                                <div id="diskUsage" class="progress"></div>
-                            </div>
-                            <span id="diskUsageText">0%</span>
-                        </div>
-                    </div>
+                <span id="cpuUsageText">0%</span>
+              </div>
+              <div class="metric">
+                <h4>Memory Usage</h4>
+                <div class="progress-bar">
+                  <div id="memoryUsage" class="progress"></div>
                 </div>
+                <span id="memoryUsageText">0%</span>
+              </div>
+              <div class="metric">
+                <h4>Disk Usage</h4>
+                <div class="progress-bar">
+                  <div id="diskUsage" class="progress"></div>
+                </div>
+                <span id="diskUsageText">0%</span>
+              </div>
             </div>
+          </div>
         </div>
+      </div>
 
-        <!-- My Account Section -->
-        <div id="my-account" class="content-section">
-            <div class="center-content">
-                <h2>My Account</h2>
-                <div id="account-info">
-                    <div class="profile">
-                        <img src="/images/mainlogo.jpg" alt="Profile Picture" class="profile-pic">
-                        <div class="profile-details">
-                            <h3 id="userName">John Doe</h3>
-                            <p id="userEmail">johndoe@example.com</p>
-                        </div>
-                    </div>
-                    <button id="editProfileButton" class="btn-primary">Edit Profile</button>
-                </div>
-                <div id="recent-activities">
-                    <h3>Recent Activities</h3>
-                    <ul id="activityList">
-                        <li>Logged in on August 16, 2024</li>
-                        <li>Completed a PC scan on August 15, 2024</li>
-                        <li>Updated settings on August 14, 2024</li>
-                    </ul>
-                </div>
-                <div id="account-settings">
-                    <h3>Account Settings</h3>
-                    <button class="btn-secondary">Change Password</button>
-                    <button class="btn-secondary">Privacy Settings</button>
-                </div>
+      <!-- My Account Section -->
+      <div id="my-account" class="content-section">
+        <div class="center-content">
+          <h2>My Account</h2>
+          <div id="account-info">
+            <div class="profile">
+              <img
+                src="/images/mainlogo.jpg"
+                alt="Profile Picture"
+                class="profile-pic"
+              />
+              <div class="profile-details">
+                <h3 id="userName">John Doe</h3>
+                <p id="userEmail">johndoe@example.com</p>
+              </div>
             </div>
+            <button id="editProfileButton" class="btn-primary">
+              Edit Profile
+            </button>
+          </div>
+          <div id="recent-activities">
+            <h3>Recent Activities</h3>
+            <ul id="activityList">
+              <li>Logged in on August 16, 2024</li>
+              <li>Completed a PC scan on August 15, 2024</li>
+              <li>Updated settings on August 14, 2024</li>
+            </ul>
+          </div>
+          <div id="account-settings">
+            <h3>Account Settings</h3>
+            <button class="btn-secondary">Change Password</button>
+            <button class="btn-secondary">Privacy Settings</button>
+          </div>
         </div>
+      </div>
 
-        <!-- Other content sections -->
-        <div id="custom-clean" class="content-section">
-            <h2>Custom Clean</h2>
-            <p>Choose what you want to clean:</p>
-            <button class="btn-primary">Analyze</button>
-            <button class="btn-secondary">Run Cleaner</button>
-        </div>
+      <!-- Other content sections -->
+      <div id="custom-clean" class="content-section">
+        <h2>Custom Clean</h2>
+        <p>Choose what you want to clean:</p>
+        <button class="btn-primary">Analyze</button>
+        <button class="btn-secondary">Run Cleaner</button>
+      </div>
 
-        <div id="performance-optimizer" class="content-section">
-            <h2>Performance Optimizer</h2>
-            <p>Optimize your system's performance:</p>
-            <button class="btn-primary">Start Optimization</button>
-            <button class="btn-secondary">Learn More</button>
-        </div>
+      <div id="performance-optimizer" class="content-section">
+        <h2>Performance Optimizer</h2>
+        <p>Optimize your system's performance:</p>
+        <button class="btn-primary">Start Optimization</button>
+        <button class="btn-secondary">Learn More</button>
+      </div>
 
-        <div id="driver-updater" class="content-section">
-            <h2>Driver Updater</h2>
-            <p>Keep your drivers up-to-date:</p>
-            <button class="btn-primary">Update Drivers</button>
-            <button class="btn-secondary">Learn More</button>
-        </div>
+      <div id="driver-updater" class="content-section">
+        <h2>Driver Updater</h2>
+        <p>Keep your drivers up-to-date:</p>
+        <button class="btn-primary">Update Drivers</button>
+        <button class="btn-secondary">Learn More</button>
+      </div>
 
-        <div id="software-updater" class="content-section">
-            <h2>Software Updater</h2>
-            <p>Ensure all your software is up-to-date:</p>
-            <button class="btn-primary">Update Software</button>
-            <button class="btn-secondary">Learn More</button>
-        </div>
+      <div id="software-updater" class="content-section">
+        <h2>Software Updater</h2>
+        <p>Ensure all your software is up-to-date:</p>
+        <button class="btn-primary">Update Software</button>
+        <button class="btn-secondary">Learn More</button>
+      </div>
 
-        <div id="tools" class="content-section">
-            <h2>Tools</h2>
-            <p>Access various system tools:</p>
-            <button class="btn-primary">Open Tools</button>
-            <button class="btn-secondary">Learn More</button>
-        </div>
+      <div id="tools" class="content-section">
+        <h2>Tools</h2>
+        <p>Access various system tools:</p>
+        <button class="btn-primary">Open Tools</button>
+        <button class="btn-secondary">Learn More</button>
+      </div>
 
-        <div id="options" class="content-section">
-            <h2>Options</h2>
-            <p>Configure CCleaner settings:</p>
-            <button class="btn-primary">Configure</button>
-            <button class="btn-secondary">Learn More</button>
-        </div>
+      <div id="options" class="content-section">
+        <h2>Options</h2>
+        <p>Configure CCleaner settings:</p>
+        <button class="btn-primary">Configure</button>
+        <button class="btn-secondary">Learn More</button>
+      </div>
 
-        <div id="get-pro" class="content-section">
-            <h2>Get Pro</h2>
-            <p>Upgrade to the Pro version for more features:</p>
-            <button class="btn-primary">Upgrade Now</button>
-            <button class="btn-secondary">Learn More</button>
-        </div>
+      <div id="get-pro" class="content-section">
+        <h2>Get Pro</h2>
+        <p>Upgrade to the Pro version for more features:</p>
+        <button class="btn-primary">Upgrade Now</button>
+        <button class="btn-secondary">Learn More</button>
+      </div>
     </div>
 
     <script src="/script.js"></script>
-</body>
+  </body>
 </html>
