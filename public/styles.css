@@ -1,0 +1,366 @@
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+/* Loading Overlay Styles */
+/* Loading Line Styles */
+/* Loading Overlay Styles */
+#loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: none; /* Hidden by default */
+    justify-content: center;
+    align-items: center;
+    z-index: 1001; /* Make sure it's above other content */
+}
+
+#loading-overlay .loader {
+    border: 8px solid #f3f3f3; /* Light grey */
+    border-top: 8px solid #007bff; /* Blue */
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.logo-container {
+    display: flex;
+    align-items: center; /* Vertically align items in the middle */
+    margin-left: 0; /* Adjust this value to move left or right */
+}
+
+.logo {
+    vertical-align: middle;
+    height: 40px; /* Adjust the height as needed */
+}
+
+.logo-text {
+    font-size: 24px;
+    font-weight: bold;
+    margin-left: 5px; /* Space between image and text */
+    vertical-align: middle;
+    line-height: 40px; /* Match this to the image height to align text */
+}
+
+
+
+/* Header Styles */
+#header {
+    background-color: #444;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.2);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    height: 40px;
+}
+
+#pop {
+    margin-right: 25px;
+}
+#health-check {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    min-height: 100vh; /* Ensure full height */
+    text-align: center; /* Center text alignment */
+}
+
+.content-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center horizontally within the wrapper */
+}
+
+.center-image {
+    margin-bottom: 20px; /* Space between the image and text */
+    max-width: 100px; /* Adjust size as needed */
+}
+
+.text-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center horizontally */
+    text-align: center; /* Center text alignment */
+}
+
+.text-content h2,
+.text-content p,
+.text-content button {
+    margin: 10px 0; /* Space between elements */
+}
+
+/* Centering Content in Health Check */
+#health-check .center-content {
+    text-align: center;
+    padding: 20px;
+}
+
+.center-img {
+    max-width: 35%; /* Adjust this value as needed to make the image bigger */
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* Adjust the gap between buttons */
+    margin-top: 20px;
+}
+
+#health-check h2 {
+    margin: 20px 0;
+}
+
+#health-check p {
+    margin-bottom: 30px;
+}
+
+.scan-status {
+    margin-top: 20px; 
+    font-size: 16px;
+    color: #333;
+    text-align: center;
+    width: 100%; 
+    clear: both; 
+}
+
+
+#buttonContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+#scanStatusArea {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#scanStatus {
+    font-size: 1rem;
+    color: #007bff;
+    margin-top: 10px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .button-group {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+/* Sidebar Styles */
+#sidebar {
+    width: 250px;
+    background-color: #333;
+    color: white;
+    position: fixed;
+    top: 60px;
+    bottom: 0;
+    padding-top: 10px;
+    overflow-y: auto;
+}
+
+#sidebar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+#sidebar ul li {
+    padding: 15px 20px;
+    cursor: pointer;
+    border-bottom: 1px solid #444;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+#sidebar ul li:hover {
+    background-color: #555;
+}
+
+/* Main Content Styles */
+#main-content {
+    margin-left: 250px;
+    padding: 20px;
+    padding-top: 80px;
+    background-color: white;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+#main-content h2 {
+    margin-bottom: 20px;
+}
+
+#main-content p {
+    margin-bottom: 30px;
+}
+
+#main-content button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+#main-content .btn-primary {
+    background-color: #007bff;
+    color: white;
+}
+
+#main-content .btn-secondary {
+    background-color: #888;
+    color: white;
+}
+
+/* Section Visibility */
+.content-section {
+    display: none;
+}
+
+.content-section.active {
+    display: block;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        top: 0;
+    }
+
+    #sidebar ul li {
+        text-align: center;
+        justify-content: center;
+    }
+
+    #main-content {
+        margin-left: 0;
+        padding-top: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    #header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    #header img {
+        margin-bottom: 10px;
+    }
+
+    #header button {
+        margin: 5px 0;
+    }
+
+    #sidebar ul li {
+        padding: 10px 5px;
+    }
+
+    #main-content button {
+        padding: 8px 15px;
+        margin-bottom: 10px;
+    }
+}
+.content-section {
+    display: none;
+}
+
+.content-section.active {
+    display: block;
+}
+
+#system-health {
+    margin-top: 20px;
+}
+
+.metric {
+    margin-bottom: 20px;
+}
+
+.progress-bar {
+    background-color: #f3f3f3;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.progress {
+    height: 20px;
+    background-color: #4caf50;
+    width: 0%;
+    transition: width 0.5s ease-in-out;
+}
+
+#health-metrics {
+    display: flex;
+    flex-direction: column;
+}
+
+#account-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+}
+
+.profile-pic {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+.profile-details h3 {
+    margin: 0;
+}
+
+.profile-details p {
+    margin: 5px 0;
+}
+
+#recent-activities ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#recent-activities li {
+    margin-bottom: 10px;
+}
+.content-section {
+    display: none;
+}
+
+.content-section.active {
+    display: block;
+}
